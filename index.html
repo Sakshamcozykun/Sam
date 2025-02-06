@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
+</head>
+<body>
+
+    <h1>Sam Will you be my Valentine? ❤️</h1>
+    <div id="message"></div>
+    <div class="buttons">
+        <button id="yes" onclick="startLove()">Yes</button>
+        <button id="no" onclick="growYes()">No</button>
+    </div>
+
+    <script>
+        let yesButton = document.getElementById('yes');
+        let noButton = document.getElementById('no');
+        let messageBox = document.getElementById('message');
+        let size = 1;
+        let noClicks = 0;
+
+        let funnyMessages = [
+            "Are you sure you wanna do this? 🤨",
+            "Think carefully... last chance! 😏",
+            "You're making a HUGE mistake! 😲",
+            "Do you really want to break my heart? 💔",
+            "Fine, keep pressing... see what happens 😤",
+            "Okay, now you're just playing with my emotions! 😭",
+            "You are forcing me to do this... 🤡",
+            "That's it! No button is GONE! 😂"
+        ];
+
+        function startLove() {
+            window.location.href = "love.html"; 
+        }
+
+        function growYes() {
+            if (noClicks < funnyMessages.length) {
+                messageBox.innerText = funnyMessages[noClicks]; 
+            }
+            size += 0.5;  
+            yesButton.style.transform = `scale(${size})`;
+            
+            if (size > 3) { 
+                noButton.style.display = "none"; 
+            }
+
+            noClicks++;
+        }
+    </script>
+
+</body>
+</html>
